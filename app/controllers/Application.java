@@ -1,14 +1,16 @@
 package controllers;
 
-import play.*;
+import models.Idea;
+
 import play.mvc.*;
 
 import views.html.*;
 
 public class Application extends Controller {
-  
+
     public static Result index() {
-        return ok(index.render("Your new application is ready."));
+    	
+        return ok(index.render(Idea.all()));
     }
   
 }

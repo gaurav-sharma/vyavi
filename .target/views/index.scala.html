@@ -1,7 +1,38 @@
-@(message: String)
+@(ideas: List[Idea]) 
 
-@main("Welcome to Play 2.1") {
-    
-    @play20.welcome(message, style = "Java")
-    
+@main("Welcome") {
+
+<div class="row-fluid">
+
+	<div class="span12">
+	
+	@for(index <- 0 until ideas.size) {
+	    @if(index % 3 == 0){
+	        <ul class="thumbnails">
+	    }
+			<li class="span4">
+				<div class="thumbnail">
+					<div class="caption">
+						<blockquote>
+							<p>@ideas(index).summary</p>
+							<small>@ideas(index).inspiration</small>
+						</blockquote>
+	
+						<hr>
+						<p>@ideas(index).description</p>
+						<p>
+							<a href="#" class="btn btn-primary">Action</a> <a href="#" class="btn">Action</a>
+						</p>
+					</div>
+	
+				</div>
+			</li>
+		@if(index % 3 == 2 || index == (ideas.size - 1)) {
+	        </ul>
+	    }
+	}	
+
+	</div>
+
+</div>
 }
