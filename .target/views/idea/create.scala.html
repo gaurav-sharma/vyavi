@@ -1,0 +1,38 @@
+@(ideaForm: Form[Idea])
+
+@import helper._ 
+
+@implicitFieldConstructor = @{FieldConstructor(twitterBootstrapInput.render) } 
+
+@main("Add a new idea") {
+
+<div class="row-fluid">
+
+	<div class="span12">
+		
+		@helper.form(action = routes.Ideas.save(), 'class -> "form-horizontal") {
+		
+		<fieldset>
+			<legend>Add a new idea</legend>
+			
+				@if(ideaForm.hasErrors){
+					<div class="alert alert-error">Please correct the following errors:</div>
+				}
+			
+				@inputText(ideaForm("summary"), '_label -> "Summary", 'class -> "input-xlarge", 'placeholder -> "Short summary")
+				@inputText(ideaForm("inspiration"), '_label -> "Inspiration", 'class -> "input-xlarge", 'placeholder -> "Where did this idea come from?")
+				@textarea(ideaForm("Description"), '_label -> "Description", 'class -> "input-xlarge", 'rows -> "7", 'placeholder -> "Describe idea in as much detail as possible")
+	
+	
+			<div class="form-actions">
+				<button type="submit" class="btn btn-primary">Create</button>
+				<a href="@routes.Application.index()" class="btn">Cancel</a>
+			</div>
+		
+		</fieldset>
+		}
+
+	</div>
+
+</div>
+}

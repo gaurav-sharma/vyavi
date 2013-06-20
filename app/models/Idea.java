@@ -28,6 +28,9 @@ public class Idea extends Model {
 	@MaxLength(1000)
 	public String description;
 	
+	//@Required
+	public User createdBy;
+	
 	@Version
 	public Timestamp createdOn;
 	

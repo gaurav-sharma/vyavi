@@ -24,8 +24,10 @@ public class Organization {
 	@ManyToMany
 	public List<User> organizationUsers;
 	
+	@Required
 	public boolean invited;
 	
+	@Required
 	public boolean accepted;
 	
 	@Version
