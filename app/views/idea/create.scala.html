@@ -19,7 +19,7 @@
 					<div class="alert alert-error">Please correct the following errors:</div>
 				}
 			
-				@inputText(ideaForm("summary"), '_label -> "Summary", 'class -> "input-xlarge", 'placeholder -> "Short summary")
+				@inputText(ideaForm("summary"), '_label -> "Summary", 'class -> "input-xlarge", 'placeholder -> "Short summary", 'required -> "")
 				@inputText(ideaForm("inspiration"), '_label -> "Inspiration", 'class -> "input-xlarge", 'placeholder -> "Where did this idea come from?")
 				@textarea(ideaForm("Description"), '_label -> "Description", 'class -> "input-xlarge", 'rows -> "7", 'placeholder -> "Describe idea in as much detail as possible")
 	

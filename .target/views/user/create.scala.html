@@ -1,0 +1,39 @@
+@(userForm: Form[User])
+
+@import helper._ 
+
+@implicitFieldConstructor = @{FieldConstructor(twitterBootstrapInput.render) } 
+
+@main("Add a new user") {
+
+<div class="row-fluid">
+
+	<div class="span12">
+		
+		@helper.form(action = routes.Users.save(), 'class -> "form-horizontal") {
+		
+		<fieldset>
+			<legend>Invite a new user</legend>
+			
+				@if(userForm.hasErrors){
+					<div class="alert alert-error">Please correct the following errors:</div>
+				}
+				@if(flash.contains(Application.FLASH_SUCCESS_KEY)) {
+				<div class="alert alert-success">@flash().get(Application.FLASH_SUCCESS_KEY)</div>
+				}
+			
+				@inputText(userForm("email"), '_label -> "Email", 'class -> "input-xlarge", 'placeholder -> "Email address of user", 'required -> "", 'type -> "email")
+	
+	
+			<div class="form-actions">
+				<button type="submit" class="btn btn-primary">Invite</button>
+				<a href="@routes.Application.index()" class="btn">Cancel</a>
+			</div>
+		
+		</fieldset>
+		}
+
+	</div>
+
+</div>
+}
